@@ -495,7 +495,6 @@
         "jquery/toggles": "4.0.0",
         "jquery/word-and-character-counter": "2.5.1",
         "kenwheeler/slick": "*",
-        "onlynet/twigimage": "^0.0.1",
         "progress-tracker/progress-tracker": "1.4.0",
         "signature_pad/signature_pad": "2.3.0",
         "vlucas/phpdotenv": "^2.4",
@@ -539,7 +538,6 @@
         "installer-paths": {
             "public_html/core": ["type:drupal-core"],
             "public_html/libraries/{$name}": ["type:drupal-library"],
-            "public_html/modules/onlynet/{$name}": ["type:drupal-custom-module"],
             "public_html/modules/contrib/{$name}": ["type:drupal-module"],
             "public_html/profiles/contrib/{$name}": ["type:drupal-profile"],
             "public_html/themes/{$name}": ["type:drupal-theme"],
@@ -567,4 +565,3 @@
         }
     }
 }
-
