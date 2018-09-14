@@ -172,7 +172,7 @@
                 "require": {
                     "composer/installers": "~1.0"
                 }
-            },
+            }
         },
         {   "_webform": true,
             "type": "package",
