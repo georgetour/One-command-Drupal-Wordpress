@@ -128,6 +128,21 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "patches": {
+            "drupal/blazy": {
+              "Integrate with core Media 8.4": "https://www.drupal.org/files/issues/2881849-8.patch"
+            },
+            "drupal/default_content": {
+              "Allow manual imports": "https://www.drupal.org/files/issues/default_content-allow_manual_imports-2640734-74.patch",
+              "Do not reimport existing entities": "https://www.drupal.org/files/issues/default_content-dont-reimport-existing-entities-2698425-99.patch"
+            },
+            "drupal/core": {
+              "Drupal\\language\\LanguageNegotiator::updateConfiguration() is passed a NULL": "https://www.drupal.org/files/issues/language-2718657-3.patch"
+            },
+            "drupal/inline_entity_form": {
+              "Entity reference translation breaks adding new parent entities in non-default languages": "https://www.drupal.org/files/issues/inline_entity_form-2747781-15.patch"
+            }
+        },
         "installer-paths": {
             "public_html/core": ["type:drupal-core"],
             "public_html/libraries/{$name}": ["type:drupal-library"],
