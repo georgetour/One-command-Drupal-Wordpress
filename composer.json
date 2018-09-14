@@ -519,20 +519,17 @@
         "files": ["load.environment.php"]
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "pre-install-cmd": [
-            "DrupalTemplate\\composer\\Script::checkComposerVersion"
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "pre-update-cmd": [
-            "DrupalTemplate\\composer\\Script::checkComposerVersion"
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "@drupal-scaffold",
-            "DrupalTemplate\\composer\\Script::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
-            "@drupal-scaffold",
-            "DrupalTemplate\\composer\\Script::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
