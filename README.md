@@ -27,8 +27,15 @@ chmod 755 /usr/local/bin/composer
 ```
 
 ### Step 2 Create drupal project:
-This will create drupal folders will all files in web folder.
+This will create drupal folders will all files in public_html folder that was referenced in composer.json.
 
 ```
 composer create-project georgetour/drupal-composer-docker-workflow some-dir --stability dev --no-interaction
+```
+
+### Step 3 Download docker-compose file:
+This will have images for the server that will run our drupal site. It will contain nginx, mariadb, phpmyadmin
+
+```
+TODO
 ```

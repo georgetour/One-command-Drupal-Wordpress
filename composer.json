@@ -513,9 +513,10 @@
         "sort-packages": true
     },
     "autoload": {
-      "psr-4": {
-          "DrupalTemplate\\composer\\": "src/composer/"
-      }
+      "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": ["load.environment.php"]
     },
     "scripts": {
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
