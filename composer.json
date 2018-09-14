@@ -11,14 +11,6 @@
         }
     ],
     "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        "georgetour": {
-          "type": "composer",
-          "url": "https://asset-packagist.org"
-        },
         "dinbror.blazy": {
             "type"    : "package",
             "package" : {
