@@ -318,7 +318,27 @@
                  }
              }
         },
-        {   "_webform": true,
+        {
+            "_webform": true,
+             "type": "package",
+             "package": {
+                 "name": "progress-tracker/progress-tracker",
+                 "version": "1.4.0",
+                 "type": "drupal-library",
+                 "extra": {
+                     "installer-name": "progress-tracker"
+                 },
+                 "dist": {
+                     "url": "https://github.com/NigelOToole/progress-tracker/archive/v1.4.0.zip",
+                     "type": "zip"
+                 },
+                 "require": {
+                     "composer/installers": "~1.0"
+                 }
+             }
+        },
+        {
+          "_webform": true,
             "type": "package",
             "package": {
                 "name": "signature_pad/signature_pad",
