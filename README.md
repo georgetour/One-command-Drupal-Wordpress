@@ -65,7 +65,7 @@ Choose profile and if your requirements are ok, you will pass the info we have i
 In linux I had to create manually the config/sync file and add user to it.
 
 ```
-mkdir config/sync
+mkdir config && mkdir config/sync
 chown yourname config -R
 ```
 
