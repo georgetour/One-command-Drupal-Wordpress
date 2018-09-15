@@ -34,8 +34,15 @@ composer create-project georgetour/drupal-composer-docker-workflow some-dir --st
 ```
 
 ### Step 3 Download docker-compose file:
-This will have images for the server that will run our drupal site. It will contain nginx, mariadb, phpmyadmin
+This will have images for the server that will run our drupal site. It will contain nginx, mariadb, phpmyadmin. You can download it with wget or from github directly https://github.com/georgetour/drupal-composer-docker-workflow .
 
 ```
-TODO
+wget https://raw.githubusercontent.com/georgetour/drupal-composer-docker-workflow/master/docker-compose.yml
 ```
+
+### Step 4 Download .env file and change variables
+In our .env file we have variables like your local's site name, db name, passwords etc...
+
+
+
+#### TODO 
