@@ -50,11 +50,35 @@ require __DIR__.’/../../../../vendor/autoload.php’
 Maybe you need to have the require in settings.php file which runs first of all.
 require __DIR__.’/../../vendor/autoload.php’
 
-VERSIONS IMPORTANT!
+### VERSIONS IMPORTANT!
 Sometimes a version might break something. For example drush version 9.4.0 had some issues. 
 drush/drush": "^9.3.0",
 The ^ means if newer version exists find it. So in the above command since the version 9.4.0 exists it will replace 9.3.0. So you have to write exactly the version you want
 "drush/drush": "9.3.0",
 
+### Composer and private repositories
+
+Composer can manage private PHP components whose repositories require authentication.
+When you run composer install or composer update , Composer prompts you if a
+component’s repository requires authentication credentials. Composer also asks if you
+want to save the repository authentication credentials in a local auth.json file (created
+adjacent to the composer.json file). An example auth.json file looks like this:
+``` 
+{
+    "http-basic": {
+        "example.org": {
+        "username": "your-username",
+        "password": "your-password"
+        }
+    }
+} 
+```
+
+Add composer manually credentials
+
+``` composer config http-basic.example.org your-username your-password ```
+
+By default, this command saves credentials in the current project’s auth.json
+file.
 
 
