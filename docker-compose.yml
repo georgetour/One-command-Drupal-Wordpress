@@ -15,7 +15,7 @@ phpfpm:
     ports:
         - "9000:9000"
     volumes:
-        - ./public:/usr/share/nginx/html
+        - ./public_html:/usr/share/nginx/html
 mysql:
   image: mariadb
   environment:

@@ -2,12 +2,12 @@
 
 clear
 
-directory="testing-new"
-user_name="george"
+directory="new-project"
+user_name="yourname"
 
-composer create-project georgetour/drupal-composer-docker-workflow $directory --stability dev --no-interaction
+composer create-project georgetour/drupal-composer-docker-workflow $directory 2.* --no-interaction
 
-mkdir "$directory"{/config} && mkdir "$directory"{/config/sync}
+mkdir "$directory"/config && mkdir "$directory"/config/sync
 
 chown $user_name "$directory"{config} -R
 
