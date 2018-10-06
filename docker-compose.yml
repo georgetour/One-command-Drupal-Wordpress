@@ -2,6 +2,9 @@ nginx:
     image: tutum/nginx
     ports:
         - "9100:80"
+    environment: 
+        NGINX_BACKEND_HOST: php
+        NGINX_SERVER_ROOT: /var/www/html/public_html
     links:
         - phpfpm
     volumes:
@@ -10,6 +13,7 @@ nginx:
 
         - ./logs/nginx-error.log:/var/log/nginx/error.log
         - ./logs/nginx-access.log:/var/log/nginx/access.log
+        - ./:/var/www/html
 phpfpm:
     image: php:fpm
     ports:
