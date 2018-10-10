@@ -9,7 +9,7 @@ composer create-project georgetour/drupal-composer-docker-workflow $directory --
 
 mkdir "$directory"/config && mkdir "$directory"/config/sync
 
-chown $user_name "$directory"{config} -R
+chown $user_name "$directory"/config -R
 
 cd $directory
 
