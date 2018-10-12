@@ -1,6 +1,6 @@
 # Automatic workflow for creating drupal project with composer and docker
 
-This project will help you create a drupal environment. It is based in https://github.com/drupal-composer/drupal-project but will have useful modules generally used in Drupal sites and docker for the environment needed to run your site locally.
+This project will help you create a drupal environment. It will have useful modules generally used in Drupal sites and docker for the environment needed to run your site locally.
 
 The current installation is for linux. Probably it will work in WSL and Mac with some changes.
 
@@ -26,25 +26,22 @@ mv composer.phar /usr/local/bin/composer
 chmod 755 /usr/local/bin/composer
 ```
 
-### Step 2 Create drupal project:
-This will create drupal folders will all files in public_html folder that was referenced in composer.json.
-
-```
-composer create-project georgetour/drupal-composer-docker-workflow some-dir --stability dev --no-interaction
-```
-
-### Step 3 Download docker-compose file:
-This will have images for the server that will run our drupal site. It will contain nginx, mariadb, phpmyadmin. You can download it with wget or from github directly https://github.com/georgetour/drupal-composer-docker-workflow .
-
-```
-wget https://raw.githubusercontent.com/georgetour/drupal-composer-docker-workflow/master/docker-compose.yml
-```
-
-### Step 4 Download .env file and change variables
-In our .env file we have variables like your local's site name, db name, passwords etc...
+### Step 2 Download the shell script:
+Download the ```shell.sh``` file where you will have your projects from here https://raw.githubusercontent.com/georgetour/drupal-composer-docker-workflow/master/shell.sh . 
 
 
+### Step 3 Run the script 
+Change the variables in the script according to your project and port you want to use. Type:
+
+ ```
+ ./shell.sh
+ ```
+
+ If you have problems with permissions chmod +x ```shell.sh```. 
+
+ Wait for some minutes according to machine and you are ready to go!
+
+ You can have many projects by just changing the port and directory.
 
 #### TODO 
-Make the shell script to work for more automation
-Clean .env file
+Maybe make use of one port for all projects

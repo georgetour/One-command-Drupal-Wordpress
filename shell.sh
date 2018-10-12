@@ -11,7 +11,7 @@ composer create-project georgetour/drupal-composer-docker-workflow $directory --
 #Create sync directories so you don't get error in linux
 mkdir "$directory"/config && mkdir "$directory"/config/sync
 
-#Add user to your project folder
+#Add user to your config folder
 chown $user_name "$directory"/config -R
 
 #Enter created folder
@@ -22,7 +22,7 @@ cd $directory
 sed 's/myproject/'$directory'/' .env.example > .env
 sed -i 's/9100/'$project_port'/' .env
 
-#Run the host for drupal
+#Create the host for drupal
 docker-compose up -d
 
 
