@@ -9,7 +9,7 @@ project_port=9100
 composer create-project georgetour/drupal-composer-docker-workflow $directory --stability dev --no-interaction
 
 #Create sync directories so you don't get error in linux
-#mkdir "$directory"/config && mkdir "$directory"/config/sync
+mkdir "$directory"/config && mkdir "$directory"/config/sync
 
 #Add user to your project folder
 chown $user_name "$directory"/config -R
