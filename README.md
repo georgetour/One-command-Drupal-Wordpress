@@ -43,5 +43,5 @@ Change the variables in the script according to your project and port you want t
 
  You can have many projects by just changing the port and directory.
 
-#### TODO 
-Maybe make use of one port for all projects
+#### ---TODO---
+Maybe make use of one port for all projects.
