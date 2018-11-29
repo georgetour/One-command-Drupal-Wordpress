@@ -25,6 +25,8 @@ sed -i 's/9100/'$project_port'/' .env
 #Create the host for drupal
 docker-compose up -d
 
+#Create the database so you don t have to use the drupal steps
+make drush site-install minimal --site-name="$directory" --account-name="admin" --account-pass="1234"
 
 
 
