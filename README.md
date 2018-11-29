@@ -46,5 +46,3 @@ Change the variables in the script according to your project and port you want t
 #### ---TODO---
 Maybe make use of one port for all projects.
 Create empty drupal theme, user/password and gulp.
-
-test readme
