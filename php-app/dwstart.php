@@ -5,6 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Console\Project;
+use Console\ProjectName;
 
 /**
 * Author: George Tourtinakis <george@besmartbesimple.com>

@@ -17,19 +17,28 @@ class Command extends SymfonyCommand
     {
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output -> writeln([
-            '====**** User Greetings Console App ****====',
-            '==========================================',
-            '',
+          '====**** Create Drupal or Wordpress project with docker ****====',
+          '==========================================',
+          '',
         ]);
 
+        //Input arguments
         $project = $input -> getArgument('project');
+        $projectName = $input -> getArgument('projectName');
+        $port = $input -> getArgument('port');
 
-        if ($project == 'Drupal2') {
-            $drupal = new DrupalProject($project);
+        //Check input arguments and create accordingly the project
+        if ($project == 'drupal-project') {
+
+          if (!empty($projectName) && ctype_digit(strval($port))) {
+            $drupal = new DrupalProject($projectName, $port);
+          } else {
+            $output -> writeln("Probably wrong project name or port is not a number");
+          }
         }
-        
+
         // outputs a message without adding a "\n" at the end of the line
-       $output -> write($this -> getGreeting() .', '. $input -> getArgument('project'));
+
     }
     private function getGreeting()
     {
