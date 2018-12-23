@@ -22,4 +22,3 @@ COPY apache-drupal.conf /etc/apache2/sites-enabled/000-default.conf
 
 WORKDIR /app
 
-composer create-project georgetour/drupal-composer-docker-workflow /app --stability dev --no-interaction

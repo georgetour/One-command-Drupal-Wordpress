@@ -17,8 +17,8 @@ class Command extends SymfonyCommand
     {
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output -> writeln([
-          '====**** Create Drupal or Wordpress project with docker ****====',
-          '==========================================',
+          '**** Create Drupal or Wordpress project with docker by georgetour****',
+          '============================================================',
           '',
         ]);
 
@@ -35,32 +35,8 @@ class Command extends SymfonyCommand
           } else {
             $output -> writeln("Probably wrong project name or port is not a number");
           }
+        }else {
+          $output -> writeln("First argument must be drupal-project or wordpress-project. Currently wordpress commands are under construction");
         }
-
-        // outputs a message without adding a "\n" at the end of the line
-
-    }
-    private function getGreeting()
-    {
-        /* This sets the $time variable to the current hour in the 24 hour clock format */
-        $time = date("H");
-        /* Set the $timezone variable to become the current timezone */
-        $timezone = date("e");
-        /* If the time is less than 1200 hours, show good morning */
-        if ($time < "12") {
-            return "Good morning";
-        } else
-        /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
-        if ($time >= "12" && $time < "17") {
-            return "Good afternoon";
-        } else
-        /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
-        if ($time >= "17" && $time < "19") {
-            return "Good evening";
-        } else
-        /* Finally, show good night if the time is greater than or equal to 1900 hours */
-        if ($time >= "19") {
-            return "Good night";
-        }        
     }
 }

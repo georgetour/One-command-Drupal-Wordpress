@@ -1,39 +1,70 @@
 # Automatic workflow for creating a drupal or wordpress project.
 
-## Drupal
+#### This is a workflow that will help you create a drupal or wordpress project with docker up and running.
 
-You will be able to work with drupal, composer, drush, gulp with sass and empty theme.
+Technologies used:
 
-Php app that will create drupal or wordpress project
+Command line tools from Symfony framework
 
-We will use the php symfony console application
+PHP
 
-The app will be in php-app
+Composer
 
-The command will be ./dwstart.php
+Docker with official images mariadb, drupal, phpmyadmin, traefik 
 
-The structure of the class 
-must be 
+Shell
 
-namespace Console;
+Later will add gulp and sass...
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac.
 
-class MyCommand extends Command
-{
-    protected function configure()
-    {
-        // ...
-    }
+## Requirements
 
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        // ...
-    }
-}
+Docker (install docker for your machine)
 
-src folder will have our commands
+PHP (php must be installed also)
+
+Composer
+
+```
+wget https://getcomposer.org/download/1.6.5/composer.phar
+mv composer.phar /usr/local/bin/composer
+chmod 755 /usr/local/bin/composer
+```
+
+## How to create a project
+
+1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
+
+2. Open command line and go to folder php-app so we will be in dw-docker/php-app
+
+3. Run 
+```
+./dwstart.php create drupal-project project-name port
+```
+
+We are using the script dwstart.php as shell script and the command create takes three arguments. First if it will be a drupal-project or wordpress-project. Second the project name which will create the folder and all realted to this like url etc. Third argument the port the containers will run on. I usually use 9100+ which are empty.
+
+4. Wait some minutes and you will see containers are created. Until I make a loading or something for the comamnd line you will have to wait some minutes where it says Creating project_app done ..........
+
+5. Run the project at project-name.localhost:port
+
+6. Your projects will be in projects folder
+
+7. Enjoy!
+
+#### TODO
+Add spinner loading while waiting
+
+Add custom composer file and empty drupal theme
+ 
+Add gulp and SASS
+
+Add wordpress containers
+
+Add commands to Readme for drush composer mysql dump etc
+
+
+
 
 
