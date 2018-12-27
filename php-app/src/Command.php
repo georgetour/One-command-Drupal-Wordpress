@@ -1,4 +1,9 @@
-<?php namespace Console;
+<?php 
+/**
+* This class will be used to control input from user and accordingly create drupal or wordpress project
+*/
+
+namespace Console;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

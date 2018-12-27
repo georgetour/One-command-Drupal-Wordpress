@@ -55,7 +55,7 @@ class DrupalProject {
     $envText = str_replace("myproject", $projectName, $envText);
     $envText = str_replace(9100, $port, $envText);
 
-    //Put the correct .env into our folder
+    //Put the correct .env content into our folder
     file_put_contents($this -> envPath($projectName), $envText);
   }
 
@@ -74,9 +74,14 @@ class DrupalProject {
   //Create drupal project with files
   public function createDrupal($projectName) {
     $this -> projectName = $projectName;
-
+ 
     //Enter project folder
     chdir("".$this-> projectFolder($projectName). "/");
-    shell_exec('./shell.sh');
+
+    //Pass the variable to shell script 
+    putenv("projectName=$projectName");
+
+    //Execute the script we took from Drupal folder
+    shell_exec("./shell.sh $projectName");
   }
 }

@@ -64,6 +64,8 @@ Add wordpress containers
 
 Add commands to Readme for drush composer mysql dump etc
 
+Make it a phar so we can avoid the strange ./dwstart.php syntax
+
 
 
 
