@@ -82,6 +82,6 @@ class DrupalProject {
     putenv("projectName=$projectName");
 
     //Execute the script we took from Drupal folder
-    shell_exec("./shell.sh $projectName");
+    exec("./shell.sh $projectName");
   }
 }

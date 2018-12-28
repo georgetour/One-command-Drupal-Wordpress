@@ -17,6 +17,7 @@ services:
     depends_on:
       - db
     build: .
+    image: georgetour-drupal
     volumes:
       - ./app:/app
     restart: always

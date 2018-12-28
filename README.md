@@ -47,22 +47,88 @@ We are using the script dwstart.php as shell script and the command create takes
 
 4. Wait some minutes and you will see containers are created. Until I make a loading or something for the comamnd line you will have to wait some minutes where it says Creating project_app done ..........
 
-5. Run the project at project-name.localhost:port
+5. Check the project at project-name.localhost:port
 
-6. Your projects will be in projects folder
+6. Phpmyadmin will be in pma.project-name.localhost:port
 
-7. Enjoy!
+7. Your projects will be in projects folder
+
+8. We are using drush to add credentials which will be user admin password admin
+
+<img src="images/drupal-login.jpg">
+
+9. To start containers for a project enter the project-name folder
+```
+docker-compose start 
+```
+
+10. To stop containers for a project enter the project-name folder
+```
+docker-compose stop
+```
+
+11. Enjoy!
+
+### Drupal commands examples
+
+#### 1. How to use drush?
+
+First enter our app container.
+
+```
+docker exec -it project-name_app bash
+```
+
+You will be in /app folder as root
+
+```
+root@3fee477ce768:/app# 
+```
+
+Enable and add a module 
+```
+drush en pathauto -y
+```
+
+#### 2. How to export database?
+
+Enter our mariadb container.
+
+```
+docker exec -it project-name_db bash
+```
+
+We will be again as root in mariadb container.
+```
+root@e1dc102dc10b:~# 
+```
+
+Access the backups folder since it is volumed in our docker-compose.yml file.
+```
+cd backups
+```
+
+Run mysqldump with correct credentials(be carefull the host) and take your mysql file in your project's folder.
+```
+mysqldump -u root -p -h projet-name_db drupal > filename.sql
+```
+
+3. Using composer
+
+If you want to use a <strong>custom</strong> composer project go to Drupal folder in shell.sh and check:
+```
+#Access container app and run composer 
+```
+
+<div style="background-color: grey;padding:20px;color:yellow">Notice: If you need to create a new project, you have to stop containers running that were created with this workflow since they won't be created correctly. To do this go to the project folder running and run <span style="color:lightblue">docker-compose stop</span>.</div>
+
 
 #### TODO
-Add spinner loading while waiting
-
 Add custom composer file and empty drupal theme
  
 Add gulp and SASS
 
 Add wordpress containers
-
-Add commands to Readme for drush composer mysql dump etc
 
 Make it a phar so we can avoid the strange ./dwstart.php syntax
 
