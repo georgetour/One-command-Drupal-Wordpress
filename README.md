@@ -113,15 +113,14 @@ Run mysqldump with correct credentials(be carefull the host) and take your mysql
 mysqldump -u root -p -h projet-name_db drupal > filename.sql
 ```
 
-3. Using composer
+#### 3. Using composer
 
 If you want to use a <strong>custom</strong> composer project go to Drupal folder in shell.sh and check:
 ```
 #Access container app and run composer 
 ```
 
-<div style="background-color: grey;padding:20px;color:yellow">Notice: If you need to create a new project, you have to stop containers running that were created with this workflow since they won't be created correctly. To do this go to the project folder running and run <span style="color:lightblue">docker-compose stop</span>.</div>
-
+<img src="images/notice.jpg">
 
 #### TODO
 Add custom composer file and empty drupal theme
