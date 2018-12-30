@@ -1,4 +1,4 @@
-# Automatic workflow for creating a drupal or wordpress project.
+# Automatic workflow for creating a drupal or wordpress project with docker.
 
 #### This is a workflow that will help you create a drupal or wordpress project with docker up and running.
 

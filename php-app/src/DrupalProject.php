@@ -6,11 +6,10 @@
 namespace Console;
 
 class DrupalProject {
-
   public $projectName;
   public $port;
   public $whereTo = '../projects/';
-
+  
 
   public function __construct($projectName, $port)
   {
@@ -68,7 +67,6 @@ class DrupalProject {
     copy("../Drupal/Dockerfile", $this-> projectFolder($projectName) ."/Dockerfile" );
     copy("../Drupal/shell.sh", $this-> projectFolder($projectName) ."/shell.sh" );
     exec("chmod 0775 " .$this-> projectFolder($projectName).  " -R");
-   
   }
 
   //Create drupal project with files
