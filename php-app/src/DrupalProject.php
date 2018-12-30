@@ -18,8 +18,8 @@ class DrupalProject {
 
   public function createDrupalProject($projectName, $port) {
     //1 . Make the project foler
-    mkdir($this-> projectFolder($projectName), 0775, true);
-    chmod($this-> projectFolder($projectName), 0775);
+    mkdir($this-> projectFolder($projectName), 0755, true);
+    chmod($this-> projectFolder($projectName), 0755);
     //2. Add the env file
     $this -> createEnvFile($projectName, $port);
     //3. Add docker files
@@ -38,6 +38,7 @@ class DrupalProject {
   //Project folder so you don't repeat
   public function projectFolder($projectName) {
     $this -> projectName = $projectName;
+
     return $this-> whereTo .$projectName;
   }
 
@@ -66,7 +67,7 @@ class DrupalProject {
     copy("../Drupal/docker-compose.yml", $this-> projectFolder($projectName) ."/docker-compose.yml" );
     copy("../Drupal/Dockerfile", $this-> projectFolder($projectName) ."/Dockerfile" );
     copy("../Drupal/shell.sh", $this-> projectFolder($projectName) ."/shell.sh" );
-    exec("chmod 0775 " .$this-> projectFolder($projectName).  " -R");
+    exec("chmod 0755 " .$this-> projectFolder($projectName).  " -R");
   }
 
   //Create drupal project with files

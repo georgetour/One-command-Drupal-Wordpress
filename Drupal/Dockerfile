@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	git \
 	mysql-client \
+	unzip \
 	vim \
 	nano \
 	wget
