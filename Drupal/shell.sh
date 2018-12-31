@@ -40,6 +40,6 @@ docker exec $projectFolder drush site-install -y \
 docker exec -ti $projectFolder sh -c "drush en admin_toolbar -y && drush en admin_toolbar_tools -y"
 
 #If we don't run this everything will be for root user
-sudo chown -R $user /app 
+sudo chown -R $user app 
 
 

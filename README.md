@@ -2,7 +2,11 @@
 
 #### This is a workflow that will help you create a drupal or wordpress project with docker up and running.
 
-Technologies used:
+> <strong>The idea is to be simple and use only one command.</strong>
+
+<hr>
+
+#### Technologies used:
 
 Command line tools from Symfony framework
 
@@ -14,9 +18,9 @@ Docker with official images mariadb, drupal, phpmyadmin, traefik
 
 Shell
 
-Later will add gulp and sass...
+This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac. Please let me know with an issue if you had it working.
 
-This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac.
+<hr>
 
 ## Requirements
 
@@ -31,12 +35,13 @@ wget https://getcomposer.org/download/1.6.5/composer.phar
 mv composer.phar /usr/local/bin/composer
 chmod 755 /usr/local/bin/composer
 ```
+<hr>
 
 ## How to create a project
 
 1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
 
-2. Edit .env file in Drupal folder and change user
+2. Edit .shell.sh file in Drupal folder and change user
 
 3. Open command line and go to folder php-app so we will be in dw-docker/php-app
 
@@ -72,6 +77,8 @@ docker-compose stop
 12. ### *** Enjoy! *** 
 
 <img src="images/notice.jpg">
+
+<hr>
 
 ### Drupal commands examples
 
@@ -117,11 +124,10 @@ Run mysqldump with correct credentials(be carefull the host) and take your mysql
 mysqldump -u root -p -h projet-name_db drupal > filename.sql
 ```
 
-#### 4. Enable gt blank theme that will be used with gulpo and SASS
+#### 4. Enable gt blank theme that will be used with Gulp and SASS
 
 ```
-drush theme:enable gt
-drush config-set system.theme default gt
+drush theme:enable gt && drush config-set system.theme default gt
 ```
 
 #### 3. Using composer
@@ -131,14 +137,55 @@ If you want to use a <strong>custom</strong> composer project go to Drupal folde
 #Access container app and run composer 
 ```
 
-#### TODO
-Add gulp and SASS
+<hr>
 
+## Using Gulp and SASS
+
+1. Check for node 
+```
+node --version
+```
+<img src="images/node-version.jpg">
+
+2. Install gulp line utility
+```
+npm install --global gulp-cli
+```
+
+3. Go to where the gulpfile.js is located and install gulp specific version locally
+```
+npm install gulp@3.8.11 
+```
+
+4. Run gulp at the projectname/app/web/themes/gt
+```
+gulp
+```
+It will create a package.json file and search for modules needed like gulp-sass
+
+5. Add rest modules needed
+```
+npm install gulp-sass gulp-autoprefixer gulp-sourcemaps gulp-autoprefixer gulp-clean-css gulp-brwsersync --save-dev
+```
+
+6. Disable aggregation so you don't have problem with caching and browsersync
+<img src="images/disable-aggregation.png">
+
+6. Your site will start at localhost:3000 and will be synced with browsersync that checks changes in sass folder.
+
+> If you have problem with watcher error in linux 
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+<hr>
+
+#### TODO
 Add wordpress containers
 
 Make it a phar so we can avoid the strange ./dwstart.php syntax
 
-Add a log file that has all projects created and ports used
+Volume apache to see logs maybe
 
 
 
