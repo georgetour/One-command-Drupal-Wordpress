@@ -7,7 +7,7 @@ use Console\Command;
 
 class Project extends Command
 {
-    
+  //Important function that adds the arguments for our custom command
   public function configure(){
     $this -> setName('create') //How we will call our command
           -> setDescription('Create a Drupal or Wordpress project') //What our command will do

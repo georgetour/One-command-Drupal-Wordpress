@@ -34,14 +34,19 @@ class Command extends SymfonyCommand
 
         //Check input arguments and create accordingly the project
         if ($project == 'drupal-project') {
-
           if (!empty($projectName) && ctype_digit(strval($port))) {
             $drupal = new DrupalProject($projectName, $port);
           } else {
             $output -> writeln("Probably wrong project name or port is not a number");
           }
-        }else {
-          $output -> writeln("First argument must be drupal-project or wordpress-project. Currently wordpress commands are under construction");
+        } else if ($project == 'wordpress-project'){          
+          if (!empty($projectName) && ctype_digit(strval($port))) {
+            $wordpress = new WordpressProject($projectName, $port);
+          } else {
+            $output -> writeln("Probably wrong project name or port is not a number");
+          }
+        } else {
+          $output -> writeln("First argument must be drupal-project or wordpress-project.");
         }
     }
 }

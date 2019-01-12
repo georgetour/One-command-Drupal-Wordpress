@@ -18,6 +18,8 @@ Docker with official images mariadb, drupal, phpmyadmin, traefik
 
 Shell
 
+Gulp and SASS(for drupal only)
+
 This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac. Please let me know with an issue if you had it working.
 
 <hr>
@@ -28,7 +30,7 @@ Docker (install docker for your machine)
 
 PHP (php must be installed also)
 
-Composer
+Composer(for drupal only)
 
 ```
 wget https://getcomposer.org/download/1.6.5/composer.phar
@@ -37,7 +39,7 @@ chmod 755 /usr/local/bin/composer
 ```
 <hr>
 
-## How to create a project
+## How to create a Drupal project
 
 1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
 
@@ -52,31 +54,19 @@ chmod 755 /usr/local/bin/composer
 
 We are using the script dwstart.php as shell script and the command create takes three arguments. First if it will be a drupal-project or wordpress-project. Second the project name which will create the folder and all realted to this like url etc. Third argument the port the containers will run on. I usually use 9100+ which are empty.
 
-5. Wait some minutes and you will see containers are created. Drupal installation will start with composer from https://packagist.org/packages/georgetour/drupal-project. 
+### Access project and project files
 
-6. Check the project at project-name.localhost:port
+1. After some minutes, you will see containers are created. Drupal installation will start with composer from https://packagist.org/packages/georgetour/drupal-project. 
 
-7. Phpmyadmin will be in pma.project-name.localhost:port
+2. Check the project at project-name.localhost:port
 
-8. Your projects will be in projects folder
+3. Phpmyadmin will be in pma.project-name.localhost:port
 
-9. We are using drush to add credentials which will be user admin password admin
+4. Your projects will be in projects folder
+
+5. We are using drush to add credentials which will be user admin password admin
 
 <img src="images/drupal-login.jpg">
-
-10. To start containers for a project enter the project-name folder
-```
-docker-compose start 
-```
-
-11. To stop containers for a project enter the project-name folder
-```
-docker-compose stop
-```
-
-12. ### *** Enjoy! *** 
-
-<img src="images/notice.jpg">
 
 <hr>
 
@@ -180,9 +170,31 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 
 <hr>
 
-#### TODO
-Add wordpress containers
+## How to create Wordpress project
 
+
+
+<hr>
+
+
+
+#### General commands
+
+1. To start containers for a project enter the project-name folder
+```
+docker-compose start 
+```
+
+2. To stop containers for a project enter the project-name folder
+```
+docker-compose stop
+```
+
+> <strong>If you need to create a new project, you have to stop containers running that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
+
+### *** Enjoy! *** 
+
+#### TODO
 Make it a phar so we can avoid the strange ./dwstart.php syntax
 
 Volume apache to see logs maybe
