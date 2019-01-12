@@ -18,6 +18,7 @@ class Command extends SymfonyCommand
     {
         parent::__construct();
     }
+    
     protected function createProject(InputInterface $input, OutputInterface $output)
     {
         // outputs multiple lines to the console (adding "\n" at the end of each line)

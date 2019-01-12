@@ -39,7 +39,7 @@ chmod 755 /usr/local/bin/composer
 ```
 <hr>
 
-## How to create a Drupal project
+## How to create a project
 
 1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
 
@@ -47,26 +47,29 @@ chmod 755 /usr/local/bin/composer
 
 3. Open command line and go to folder php-app so we will be in dw-docker/php-app
 
-4. Run 
+After the above...
+
+#### To create a drupal project run:
 ```
 ./dwstart.php create drupal-project project-name port
+```
+
+#### To create a wordpress project run:
+```
+./dwstart.php create wordpress-project project-name port
 ```
 
 We are using the script dwstart.php as shell script and the command create takes three arguments. First if it will be a drupal-project or wordpress-project. Second the project name which will create the folder and all realted to this like url etc. Third argument the port the containers will run on. I usually use 9100+ which are empty.
 
 ### Access project and project files
 
-1. After some minutes, you will see containers are created. Drupal installation will start with composer from https://packagist.org/packages/georgetour/drupal-project. 
+1. Check the project at project-name.localhost:port
 
-2. Check the project at project-name.localhost:port
+2. Phpmyadmin will be in pma.project-name.localhost:port
 
-3. Phpmyadmin will be in pma.project-name.localhost:port
+3. Your projects will be in projects folder
 
-4. Your projects will be in projects folder
-
-5. We are using drush to add credentials which will be user admin password admin
-
-<img src="images/drupal-login.jpg">
+4. We are using drush to add credentials which will be user admin password admin
 
 <hr>
 
@@ -129,7 +132,7 @@ If you want to use a <strong>custom</strong> composer project go to Drupal folde
 
 <hr>
 
-## Using Gulp and SASS
+## Using Gulp and SASS(only for drupal)
 
 1. Check for node 
 ```
@@ -170,14 +173,6 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 
 <hr>
 
-## How to create Wordpress project
-
-
-
-<hr>
-
-
-
 #### General commands
 
 1. To start containers for a project enter the project-name folder
@@ -192,7 +187,14 @@ docker-compose stop
 
 > <strong>If you need to create a new project, you have to stop containers running that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
 
-### *** Enjoy! *** 
+>><strong>Also be carefull not to have the same network used again for docker. For example if you create a drupla project called bee, you will have a bee_default network along with the containers. If you delete the containers for some reason you must also run:</strong>
+
+```
+docker network prune
+```
+>><strong>To remove your associated network.</strong>
+
+## Enjoy!
 
 #### TODO
 Make it a phar so we can avoid the strange ./dwstart.php syntax

@@ -13,7 +13,7 @@ mkdir app
 docker-compose up -d
 
 #Get wordpress 4.9.8 
-docker exec $projectFolder wget wget https://github.com/georgetour/dw-docker/raw/master/Wordpress/wordpress-4.9.8.zip
+docker exec $projectFolder wget https://github.com/georgetour/dw-docker/raw/master/Wordpress/wordpress-4.9.8.zip
 
 #Unzip wordpress
 docker exec -ti $projectFolder sh -c "unzip wordpress-4.9.8.zip"
@@ -23,6 +23,4 @@ docker exec -ti $projectFolder sh -c "rm wordpress-4.9.8.zip"
 docker exec -ti $projectFolder sh -c "chown -R www-data:www-data /app"
 
 #If we don't run this everything will be for root user
-sudo chown -R $user app 
-
-
+#sudo chown -R $user app
