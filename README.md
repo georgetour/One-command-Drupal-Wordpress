@@ -20,7 +20,7 @@ Shell
 
 Gulp and SASS(for drupal only)
 
-This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac. Please let me know with an issue if you had it working.
+This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac.
 
 <hr>
 
@@ -45,21 +45,35 @@ chmod 755 /usr/local/bin/composer
 
 2. Edit .shell.sh file in Drupal folder and change user
 
-3. Open command line and go to folder php-app so we will be in dw-docker/php-app
+3. Open command line and go to folder php-app so we will be in dw-docker/php-app. Make an alias for our php
+execute script:
 
-After the above...
+```
+alias dw='./dwstart.php'
+```
+
+In our php-app folder just give your project name and port for docker...
 
 #### To create a drupal project run:
 ```
-./dwstart.php create drupal-project project-name port
+dw create drupal-project project-name port
 ```
 
 #### To create a wordpress project run:
 ```
-./dwstart.php create wordpress-project project-name port
+dw create wordpress-project project-name port
 ```
 
-We are using the script dwstart.php as shell script and the command create takes three arguments. First if it will be a drupal-project or wordpress-project. Second the project name which will create the folder and all realted to this like url etc. Third argument the port the containers will run on. I usually use 9100+ which are empty.
+##  ***** 
+##  That's it!
+##  *****
+
+How command works/help:
+```
+dw create --help
+```
+
+<hr>
 
 ### Access project and project files
 
@@ -70,6 +84,12 @@ We are using the script dwstart.php as shell script and the command create takes
 3. Your projects will be in projects folder
 
 4. We are using drush to add credentials which will be user admin password admin
+
+<hr>
+
+### Wordpress creds for first steps
+These are created by the .env file in Wordpress folder.
+<img src="images/wordpress_creds.png">
 
 <hr>
 
@@ -185,20 +205,19 @@ docker-compose start
 docker-compose stop
 ```
 
-> <strong>If you need to create a new project, you have to stop containers running that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
+> <strong>If you need to create a new project, you have to stop containers that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
 
->><strong>Also be carefull not to have the same network used again for docker. For example if you create a drupla project called bee, you will have a bee_default network along with the containers. If you delete the containers for some reason you must also run:</strong>
+>><strong>Also be carefull not to have the same network used again for docker. For example if you create a drupal project called bee, you will have a bee_default network along with the containers. If you delete the containers for some reason, you must also remove your associated network:</strong>
 
 ```
 docker network prune
 ```
->><strong>To remove your associated network.</strong>
 
 ## Enjoy!
 
-#### TODO
-Make it a phar so we can avoid the strange ./dwstart.php syntax
+<hr>
 
+#### TODO
 Volume apache to see logs maybe
 
 
