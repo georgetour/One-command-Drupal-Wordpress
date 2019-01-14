@@ -43,7 +43,7 @@ chmod 755 /usr/local/bin/composer
 
 1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
 
-2. Edit .shell.sh file in Drupal folder and change user
+2. Edit shell.sh file in Drupal and Wordpress folder and change user
 
 3. Open command line and go to folder php-app so we will be in dw-docker/php-app. Make an alias for our php
 execute script:
@@ -83,7 +83,7 @@ dw create --help
 
 3. Your projects will be in projects folder
 
-4. We are using drush to add credentials which will be user admin password admin
+4. We are using drush to add credentials which will be user admin password admin(drupal only)
 
 <hr>
 
