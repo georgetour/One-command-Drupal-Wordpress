@@ -20,7 +20,7 @@ Shell
 
 Gulp and SASS(for drupal only)
 
-This is only tested in <strong>Linux</strong> but probably it will work in windows with wsl and mac.
+This is only tested in <strong>Linux</strong> and <strong>Mac</strong> but 99% will work with windows and WSL. 
 
 <hr>
 
