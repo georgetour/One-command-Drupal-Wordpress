@@ -67,7 +67,7 @@ class WordpressProject {
     copy("../Wordpress/docker-compose.yml", $this-> projectFolder($projectName) ."/docker-compose.yml" );
     copy("../Wordpress/Dockerfile", $this-> projectFolder($projectName) ."/Dockerfile" );
     copy("../Wordpress/shell.sh", $this-> projectFolder($projectName) ."/shell.sh" );
-    exec("chmod 0755 " .$this-> projectFolder($projectName).  " -R");
+    exec("chmod -R 0755  " .$this-> projectFolder($projectName));
   }
 
   //Create Wordpress project with files

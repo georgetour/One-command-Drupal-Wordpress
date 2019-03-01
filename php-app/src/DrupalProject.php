@@ -67,10 +67,10 @@ class DrupalProject {
     copy("../Drupal/docker-compose.yml", $this-> projectFolder($projectName) ."/docker-compose.yml" );
     copy("../Drupal/Dockerfile", $this-> projectFolder($projectName) ."/Dockerfile" );
     copy("../Drupal/shell.sh", $this-> projectFolder($projectName) ."/shell.sh" );
-    exec("chmod 0755 " .$this-> projectFolder($projectName).  " -R");
+    exec("chmod -R 0755  " .$this-> projectFolder($projectName));
   }
 
-  //Create drupal project with files
+  //Create drupal project with files`
   public function createDrupal($projectName) {
     $this -> projectName = $projectName;
  
