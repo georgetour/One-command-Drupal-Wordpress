@@ -24,3 +24,6 @@ docker exec -ti $projectFolder sh -c "chown -R www-data:www-data /app"
 
 #If we don't run this everything will be for root user
 #sudo chown -R $user app
+
+#Add our new app to localhost since mozilla doesn't automatic find it
+echo '127.0.0.1 ' $projectName | sudo tee -a /private/etc/hosts

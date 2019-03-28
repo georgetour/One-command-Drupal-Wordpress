@@ -42,4 +42,7 @@ docker exec -ti $projectFolder sh -c "drush en admin_toolbar -y && drush en admi
 #If we don't run this everything will be for root user
 sudo chown -R $user app 
 
+#Add our new app to localhost since mozilla doesn't automatic find it
+echo '127.0.0.1 ' $projectName | sudo tee -a /private/etc/hosts
+
 
