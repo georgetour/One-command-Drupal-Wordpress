@@ -39,7 +39,7 @@ chmod 755 /usr/local/bin/composer
 ```
 <hr>
 
-## How to create a project
+## How to create and run a project
 
 1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
 
@@ -52,8 +52,6 @@ execute script:
 alias dw='./dwstart.php'
 ```
 
-In our php-app folder just give your project name and port for docker...
-
 #### To create a drupal project run:
 ```
 dw create drupal-project project-name port
@@ -64,14 +62,36 @@ dw create drupal-project project-name port
 dw create wordpress-project project-name port
 ```
 
-##  ***** 
-##  That's it!
-##  *****
-
 How command works/help:
 ```
 dw create --help
 ```
+
+#### Start docker containers and project
+1. To start containers for a project enter the project-name folder
+```
+docker-compose start 
+```
+
+2. To stop containers for a project enter the project-name folder
+```
+docker-compose stop
+```
+
+> <strong>If you need to create a new project, you have to stop containers that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
+
+>><strong>Also be carefull not to have the same network used again for docker. For example if you create a drupal project called bee, you will have a bee_default network along with the containers. If you delete the containers for some reason, you must also remove your associated network:</strong>
+
+```
+docker network prune
+```
+
+## Enjoy!
+
+##  ***** 
+##  That's it!
+##  *****
+
 
 <hr>
 
@@ -190,30 +210,6 @@ npm install gulp-sass gulp-autoprefixer gulp-sourcemaps gulp-autoprefixer gulp-c
 ```
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
-
-<hr>
-
-#### General commands
-
-1. To start containers for a project enter the project-name folder
-```
-docker-compose start 
-```
-
-2. To stop containers for a project enter the project-name folder
-```
-docker-compose stop
-```
-
-> <strong>If you need to create a new project, you have to stop containers that were created with this workflow, since they won't be created correctly. To do this, go to project folder that is running and run docker-compose stop.</strong>
-
->><strong>Also be carefull not to have the same network used again for docker. For example if you create a drupal project called bee, you will have a bee_default network along with the containers. If you delete the containers for some reason, you must also remove your associated network:</strong>
-
-```
-docker network prune
-```
-
-## Enjoy!
 
 <hr>
 
