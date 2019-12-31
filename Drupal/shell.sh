@@ -21,7 +21,7 @@ docker exec $projectFolder chmod +x /usr/local/bin/drupal
 docker exec $projectFolder composer create-project georgetour/drupal-project:8.x-dev /app --stability dev --no-interaction
 
 # #Get empty theme, put it in themes folder and unzip it
-docker exec $projectFolder wget https://github.com/georgetour/dw-docker/raw/master/Drupal/gt.zip
+docker exec $projectFolder wget https://github.com/georgetour/drupal-wordpress-docker/raw/master/Drupal/gt.zip
 docker exec $projectFolder mv gt.zip web/themes
 docker exec -ti $projectFolder sh -c "cd web/themes && unzip gt.zip"
 docker exec -ti $projectFolder sh -c "rm web/themes/gt.zip" 

@@ -41,7 +41,7 @@ chmod 755 /usr/local/bin/composer
 
 ## How to create and run a project
 
-1. git clone or download the repository directly from https://github.com/georgetour/dw-docker
+1. git clone or download the repository directly from https://github.com/georgetour/drupal-wordpress-docker
 
 2. Edit shell.sh file in Drupal and Wordpress folder and change user
 

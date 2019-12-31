@@ -13,7 +13,7 @@ mkdir app
 docker-compose up -d
 
 #Get wordpress 4.9.8 
-docker exec $projectFolder wget https://github.com/georgetour/dw-docker/raw/master/Wordpress/wordpress-4.9.8.zip
+docker exec $projectFolder wget https://github.com/georgetour/drupal-wordpress-docker/raw/master/Wordpress/wordpress-4.9.8.zip
 
 #Unzip wordpress
 docker exec -ti $projectFolder sh -c "unzip wordpress-4.9.8.zip"
