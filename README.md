@@ -45,7 +45,7 @@ chmod 755 /usr/local/bin/composer
 
 2. unzip master.zip
 
-3. mv drupal-wordpress-docker-master drupal-wordpress-docker
+3. rename drupal-wordpress-docker-master to drupal-wordpress-docker
 
 4. Edit shell.sh file in Drupal and Wordpress folder and change user
 
