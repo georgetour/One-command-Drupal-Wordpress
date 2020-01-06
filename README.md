@@ -41,11 +41,15 @@ chmod 755 /usr/local/bin/composer
 
 ## How to create and run a project
 
-1. git clone or download the repository directly from https://github.com/georgetour/drupal-wordpress-docker
+1. Download the full zip https://github.com/georgetour/drupal-wordpress-docker/archive/master.zip or directly from https://github.com/georgetour/drupal-wordpress-docker
 
-2. Edit shell.sh file in Drupal and Wordpress folder and change user
+2. unzip master.zip
 
-3. Open command line and go to folder php-app so we will be in drupal-wordpress-docker/php-app. Make an alias for our php
+3. mv drupal-wordpress-docker-master drupal-wordpress-docker
+
+4. Edit shell.sh file in Drupal and Wordpress folder and change user
+
+5. Open command line and go to folder php-app so we will be in drupal-wordpress-docker/php-app. Make an alias for our php
 execute script:
 
 ```
