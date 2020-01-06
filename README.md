@@ -45,7 +45,7 @@ chmod 755 /usr/local/bin/composer
 
 2. Edit shell.sh file in Drupal and Wordpress folder and change user
 
-3. Open command line and go to folder php-app so we will be in dw-docker/php-app. Make an alias for our php
+3. Open command line and go to folder php-app so we will be in drupal-wordpress-docker/php-app. Make an alias for our php
 execute script:
 
 ```
