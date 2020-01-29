@@ -1,0 +1,7 @@
+The symfony app is based on 
+https://codeburst.io/build-a-php-console-application-using-symfony-692a876f416
+
+Create the phar file after project finished based on compile.php 
+by running php compile.php if you are in the folder
+
+Check how it runs and speed in wsl.
