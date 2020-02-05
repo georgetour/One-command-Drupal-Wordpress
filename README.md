@@ -21,7 +21,7 @@ wget https://github.com/georgetour/drupal-wordpress-docker/blob/master/app/ocd.p
 2. Move the application so you can run it and change permissions
 ```
 sudo mv ocd.phar /usr/local/bin/ocd
-sudo chmod 755 /usr/local/bin/oncli
+sudo chmod 755 /usr/local/bin/ocd
 ```
 # One command
 ### For drupal-project
