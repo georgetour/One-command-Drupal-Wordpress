@@ -34,7 +34,7 @@ ocd create drupal-project myproject 9100
 ocd create wordpress-project myproject 9100
 ```
 
-You just say ocd create then parameter drupal-project/wordpress-project projectname (give containers names also) and port (use different ports).
+You just say ocd create then parameter drupal-project/wordpress-project projectname (gives containers names also) and port (use different ports).
 
 # That's it!
 
