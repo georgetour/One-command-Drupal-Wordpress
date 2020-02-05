@@ -15,7 +15,7 @@ With one command you will have the files, the containers for the server, the sit
 # Installation (only once)
 1. First download the phar file that has the application
 ```
-wget https://github.com/georgetour/drupal-wordpress-docker/blob/master/app/ocd.phar
+wget https://github.com/georgetour/One-command-Drupal-Wordpress/raw/master/app/ocd.phar
 ```
 
 2. Move the application so you can run it and change permissions
