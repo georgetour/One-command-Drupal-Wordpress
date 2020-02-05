@@ -24,8 +24,8 @@ class Command extends SymfonyCommand
     {
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output -> writeln([
-          "\n **** Create Drupal or Wordpress project with docker by georgetour ****",
-          "=========================================================================",
+          '**** Create Drupal or Wordpress project with docker by georgetour ****',
+          '=========================================================================',
           '',
         ]);
 
