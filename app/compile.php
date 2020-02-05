@@ -1,6 +1,6 @@
 <?php
 
-$pharFile = 'app.phar';
+$pharFile = 'ocd.phar';
 
 // clean up
 if (file_exists($pharFile)) 
@@ -37,6 +37,6 @@ $phar->stopBuffering();
 $phar->compressFiles(Phar::GZ);
 
 # Make the file executable
-chmod(__DIR__ . '/app.phar', 0770);
+chmod(__DIR__ . '/ocd.phar', 0770);
 
 echo "$pharFile successfully created" . PHP_EOL;

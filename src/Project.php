@@ -10,7 +10,7 @@ class Project extends Command
   //Important function that adds the arguments for our custom command
   public function configure(){
     $this -> setName('create') //How we will call our command
-          -> setDescription('Create a Drupal or Wordpress project by georgetour') //What our command will do
+          -> setDescription('ex. create drupal-project myprojectname 9100') //What our command will do
           -> setHelp('create drupal-project or wordpress-project project-name port')
           -> addArgument('project', InputArgument::REQUIRED, 'Drupal or Wordpress.') //Get input argument
           -> addArgument('projectName', InputArgument::REQUIRED, 'Project Name.') //Get input argument

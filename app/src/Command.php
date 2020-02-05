@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Output\OutputInterface;
 use Console\Project;
 
@@ -23,8 +24,8 @@ class Command extends SymfonyCommand
     {
         // outputs multiple lines to the console (adding "\n" at the end of each line)
         $output -> writeln([
-          '**** Create Drupal or Wordpress project with docker by georgetour****',
-          '============================================================',
+          "\n **** Create Drupal or Wordpress project with docker by georgetour ****",
+          "=========================================================================",
           '',
         ]);
 
@@ -35,19 +36,29 @@ class Command extends SymfonyCommand
 
         //Check input arguments and create accordingly the project
         if ($project == 'drupal-project') {
-          // if (!empty($projectName) && ctype_digit(strval($port))) {
-          //   $drupal = new DrupalProject($projectName, $port);
-          // } else {
-            $output -> writeln("project". $project . "project name" . $projectName . "port" . $port) .$port;
-          // }
+          if (!empty($projectName) && ctype_digit(strval($port))) {
+            $drupal = new DrupalProject($projectName, $port);
+          } else {
+            $output -> writeln("Probably wrong project name or port is not a number");
+          } 
         } else if ($project == 'wordpress-project'){          
           // if (!empty($projectName) && ctype_digit(strval($port))) {
           //   $wordpress = new WordpressProject($projectName, $port);
           // } else {
-            $output -> writeln("Probably wrong project name or port is not a number");
+            $output -> writeln("wordpress test");
           // }
         } else {
           $output -> writeln("First argument must be drupal-project or wordpress-project.");
         }
     }
+      /**
+  * Prints to shell.
+  */
+  protected function shell($command) {
+    $process = new Process($command);
+    $process->setTimeout(0);
+    $process->run(function ($type, $buffer) {
+      echo $buffer;
+    });
+  }
 }

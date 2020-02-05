@@ -5,3 +5,8 @@ Create the phar file after project finished based on compile.php
 by running php compile.php if you are in the folder
 
 Check how it runs and speed in wsl.
+
+Logs for apache
+Wordpress workflow
+Drush installation (to bypass blue start screen )for drupal, empty theme 
+SASS with gulp
