@@ -1,4 +1,4 @@
-#Under development (will remove traeffik and many ports and will add nginx as proxy)
+# Under development (will remove traeffik and many ports and will add nginx as proxy)
 # One command docker/wordpress
 
 
