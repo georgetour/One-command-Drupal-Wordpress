@@ -1,4 +1,6 @@
+#Under development (will remove traeffik and many ports and will add nginx as proxy)
 # One command docker/wordpress
+
 
 One command to create a drupal or wordpress workflow. 
 
