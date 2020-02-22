@@ -32,12 +32,11 @@ class Command extends SymfonyCommand
         //Input arguments
         $project = $input -> getArgument('project');
         $projectName = $input -> getArgument('projectName');
-        $port = $input -> getArgument('port');
 
         //Check input arguments and create accordingly the project
         if ($project == 'drupal-project') {
-          if (!empty($projectName) && ctype_digit(strval($port))) {
-            $drupal = new DrupalProject($projectName, $port);
+          if (!empty($projectName)) {
+            $drupal = new DrupalProject($projectName);
           } else {
             $output -> writeln("Probably wrong project name or port is not a number");
           } 

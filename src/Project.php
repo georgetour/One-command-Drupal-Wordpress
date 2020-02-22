@@ -13,8 +13,7 @@ class Project extends Command
           -> setDescription('ex. create drupal-project myprojectname 9100') //What our command will do
           -> setHelp('create drupal-project or wordpress-project project-name port')
           -> addArgument('project', InputArgument::REQUIRED, 'Drupal or Wordpress.') //Get input argument
-          -> addArgument('projectName', InputArgument::REQUIRED, 'Project Name.') //Get input argument
-          -> addArgument('port', InputArgument::REQUIRED, 'Port.'); //Port to use 
+          -> addArgument('projectName', InputArgument::REQUIRED, 'Project Name.'); //Get input argument
   }
 
   //Creates the project according to input from Command.php

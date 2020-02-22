@@ -20,25 +20,31 @@ class DrupalProject {
   
 
   //When we use new Drupal
-  public function __construct($projectName, $port)
+  public function __construct($projectName)
   {
-    $this -> createDrupalProject($projectName, $port);
+    $this -> createDrupalProject($projectName);
   }
 
-  public function createDrupalProject($projectName, $port) {
+  public function createDrupalProject($projectName) {
     
     //1. Install drupal files
-    $this->shell("composer create-project georgetour/drupal-project:8.x-dev " . $projectName . " --stability dev --no-interaction"); 
+    $this->shell("composer create-project georgetour/drupal-project " . $projectName . " --stability dev --no-interaction"); 
     echo "\n - Finsihed downloading drupal files - \n \n" ;
 
-    //2 . Download docker files
-    $this->shell("git clone https://github.com/georgetour/drupal-docker.git");
-    
-    //3. Move docker files and remove folder
-    $this->shell("rm -rf drupal-docker/.git");
-    $this->shell("mv -f drupal-docker/* " . $projectName . "/");
-    $this->shell("rm -rf drupal-docker");
-    echo "\n - Finsihed downloading docker files and creating docker containers for server - \n \n" ;
+    //2. Add lemp-docker if not exists
+    try {
+      if(!file_exists("lemp-docker/docker-compose.yml")) {
+        $this->shell("git clone https://github.com/georgetour/lemp-docker.git");
+      }
+    } catch (\Throwable $th) {
+      echo "Error getting lemp-docker from git";
+    }
+
+    //3. Copy docker files so we can docker-compose up -d later
+    $this->shell("rm -rf lemp-docker/.git");
+    $this->shell("cp -r lemp-docker/* " . $projectName);
+    $this->shell("cp lemp-docker/example.env ". $projectName . "/.env");
+    echo "\n - Finsihed downloading docker server files - \n \n" ;
     
     //4. Change env file according to parameters and rm it
     // Get current file
@@ -47,8 +53,7 @@ class DrupalProject {
     //Clear existing text
     file_put_contents($file, "");
     $current = "PROJECT_NAME=" .$projectName . "\n" .
-    "PROJECT_BASE_URL=". $projectName .".localhost\n" .
-    "PROJECT_PORT=" . $port . "\n" .
+    "PROJECT_URL=". $projectName .".dd\n" .
     "DB_HOST=db" . "\n" .
     "DB_NAME=drupal" . "\n" .
     "DB_USER=drupal" . "\n" .
@@ -60,8 +65,11 @@ class DrupalProject {
 
     // //5. Run docker and create environement
     $this->shell("cd " .$projectName. " && docker-compose up -d");
-
     echo ("\n - Created docker containers and server is running - \n \n");
+    
+    //6. Add site to hosts file
+    echo ("\n - Add ".$projectName . ".dd" . " to hosts file- \n \n");
+    echo ("\n - Visit your site at http://" .$projectName . ".dd".  "- \n \n");
 
     //5. Install drupal with drush
     // exec("cd ") .$projectName . "&& drush site-install -y --db-url=mysql:drupal:drupal@db:3306/drupal --site-name=" . $projectName .

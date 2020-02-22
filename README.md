@@ -1,6 +1,4 @@
-# Under development (will remove traeffik and many ports and will add nginx as proxy)
 # One command docker/wordpress
-
 
 One command to create a drupal or wordpress workflow. 
 
@@ -10,7 +8,7 @@ With one command you will have the files, the containers for the server, the sit
 - php
 - composer (for drupal only)
 - git
-- wget (or anything you like so you can download the phar file from here)
+- wget
 - docker
 - command line 
 
@@ -25,15 +23,26 @@ wget https://github.com/georgetour/One-command-Drupal-Wordpress/raw/master/app/o
 sudo mv ocd.phar /usr/local/bin/ocd
 sudo chmod 755 /usr/local/bin/ocd
 ```
+
+3. Create an external nginx reverse proxy that will handle the domains locally.
+```
+git clone https://github.com/georgetour/nginx-proxy.git
+```
+
+Inside the folder:
+```
+docker-compose up -d
+```
+
 # One command
 ### For drupal-project
 ```
-ocd create drupal-project myproject 9100
+ocd create drupal-project myproject 
 ```
 
 ### For wordpress-project (under construction)
 ```
-ocd create wordpress-project myproject 9100
+ocd create wordpress-project myproject
 ```
 
 You just say ocd create then parameter drupal-project/wordpress-project projectname (gives containers names also) and port (use different ports).
@@ -41,10 +50,10 @@ You just say ocd create then parameter drupal-project/wordpress-project projectn
 # That's it!
 
 ## View your new site at local
-http://myproject.localhost:9100/
+http://myproject.dd
 
 ## View phpMyAdmin 
-http://pma.myproject.localhost:9100/
+http://pma.myproject.dd
 
 ## Creds
 ### For drupal and phpMyAdmin
@@ -53,6 +62,7 @@ http://pma.myproject.localhost:9100/
 - password: drupal
 - user root: root
 - root password: password
+- host: db
 
 <img src="various/creds-one-command.jpg">
 
