@@ -49,6 +49,9 @@ You just say ocd create then parameter drupal-project/wordpress-project projectn
 
 # That's it!
 
+### Don't forget to add your site at hosts file. If your site is myproject.dd add in your hosts: 
+- 127.0.0.1 myproject.dd myproject.pma.dd
+
 ## View your new site at local
 http://myproject.dd
 
