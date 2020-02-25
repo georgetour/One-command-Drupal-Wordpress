@@ -1,4 +1,4 @@
-# One command docker/wordpress
+# One command drupal/wordpress
 
 One command to create a drupal or wordpress workflow. 
 

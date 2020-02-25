@@ -32,7 +32,7 @@ class WordpressProject {
 
     $this->shell("tar xf latest.tar.gz");
     $this->shell("cp -r wordpress/* " .  $projectName . "/public_html") ;
-    echo "\n - Finsihed downloading wordpress files - \n \n" ;
+    echo "\n - Finsihed downloading wordpress files - \n \n";
 
     //2. Add lemp-docker if not exists
     try {
@@ -48,8 +48,13 @@ class WordpressProject {
     $this->shell("cp -r lemp-docker/* " . $projectName);
     $this->shell("cp lemp-docker/example.env ". $projectName . "/.env");
     echo "\n - Finsihed downloading docker server files - \n \n" ;
-    
-    //4. Change env file according to parameters and rm it
+
+    //4. Add nginx settings for wordpress
+    $this->shell("wget https://github.com/georgetour/One-command-Drupal-Wordpress/raw/master/various/wordpress-nginx-settings/default.conf.tpl");
+    $this->shell("mv default.conf.tpl ". $projectName . "/nginx-settings/default.conf.tpl");
+    echo "\n - Nginx settings for wordpress configured - \n \n";
+
+    //5. Change env file according to parameters and rm it
     // Get current file
     $file = $projectName. '/.env';
    
@@ -66,11 +71,11 @@ class WordpressProject {
     //Put correct values for variables according to input
     file_put_contents($file, $current);
 
-    // //5. Run docker and create environement
+    // //6. Run docker and create environement
     $this->shell("cd " .$projectName. " && docker-compose up -d");
     echo ("\n - Created docker containers and server is running - \n \n");
     
-    //6. Add site to hosts file
+    //7. Add site to hosts file
     echo ("\n - Add ".$projectName . ".dd" . " to hosts file - \n \n");
     echo ("\n - Visit your site at http://" .$projectName . ".dd ".  "- \n \n");
   }
