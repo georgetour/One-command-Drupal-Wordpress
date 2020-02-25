@@ -13,32 +13,38 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Output\OutputInterface;
 use Console\Project;
 
-class DrupalProject {
+class WordpressProject {
   public $projectName;
   
-  //When we use new Drupal
+  //When we use new Wordpress
   public function __construct($projectName)
   {
-    $this -> createDrupalProject($projectName);
+    $this -> createWordpressProject($projectName);
   }
 
-  public function createDrupalProject($projectName) {
+  public function createWordpressProject($projectName) {
     
-    //1. Install drupal files
-    $this->shell("composer create-project georgetour/drupal-project " . $projectName . " --stability dev --no-interaction"); 
-    echo "\n - Finsihed downloading drupal files - \n \n" ;
+    //1. Install wordpress files
+    $this->shell("mkdir -p $projectName");
+    if(!file_exists(realpath("latest.tar.gz"))) {
+      $this->shell("wget https://wordpress.org/latest.tar.gz");
+    } 
+
+    $this->shell("tar xf latest.tar.gz");
+    $this->shell("cp -r wordpress/* " .  $projectName . "/public_html") ;
+    echo "\n - Finsihed downloading wordpress files - \n \n" ;
 
     //2. Add lemp-docker if not exists
     try {
-      if(!file_exists("lemp-docker/docker-compose.yml")) {
+      if(!file_exists(realpath("lemp-docker/docker-compose.yml"))) {
         $this->shell("git clone https://github.com/georgetour/lemp-docker.git");
+        $this->shell("rm -rf lemp-docker/.git");
       }
     } catch (\Throwable $th) {
       echo "Error getting lemp-docker from git";
     }
 
     //3. Copy docker files so we can docker-compose up -d later
-    $this->shell("rm -rf lemp-docker/.git");
     $this->shell("cp -r lemp-docker/* " . $projectName);
     $this->shell("cp lemp-docker/example.env ". $projectName . "/.env");
     echo "\n - Finsihed downloading docker server files - \n \n" ;
@@ -52,9 +58,9 @@ class DrupalProject {
     $current = "PROJECT_NAME=" .$projectName . "\n" .
     "PROJECT_URL=". $projectName .".dd\n" .
     "DB_HOST=db" . "\n" .
-    "DB_NAME=drupal" . "\n" .
-    "DB_USER=drupal" . "\n" .
-    "DB_PASSWORD=drupal" . "\n" .
+    "DB_NAME=wordpress" . "\n" .
+    "DB_USER=wordpress" . "\n" .
+    "DB_PASSWORD=wordpress" . "\n" .
     "DB_ROOT_PASSWORD=password" . "\n" ;
 
     //Put correct values for variables according to input
@@ -65,14 +71,8 @@ class DrupalProject {
     echo ("\n - Created docker containers and server is running - \n \n");
     
     //6. Add site to hosts file
-    echo ("\n - Add ".$projectName . ".dd" . " to hosts file- \n \n");
-    echo ("\n - Visit your site at http://" .$projectName . ".dd".  "- \n \n");
-
-    //5. Install drupal with drush
-    // exec("cd ") .$projectName . "&& drush site-install -y --db-url=mysql:drupal:drupal@db:3306/drupal --site-name=" . $projectName .
-    // " --site-mail=admin@admin.com --account-mail=admin@yahoo.gr --account-name=admin --account-pass=admin"
-    
-    //6. Add empty theme and sass
+    echo ("\n - Add ".$projectName . ".dd" . " to hosts file - \n \n");
+    echo ("\n - Visit your site at http://" .$projectName . ".dd ".  "- \n \n");
   }
 
   //Prints to shell.

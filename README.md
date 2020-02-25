@@ -9,6 +9,7 @@ With one command you will have the files, the containers for the server, the sit
 - composer (for drupal only)
 - git
 - wget
+- tar (for wordpress only)
 - docker
 - command line 
 
@@ -40,23 +41,28 @@ docker-compose up -d
 ocd create drupal-project myproject 
 ```
 
-### For wordpress-project (under construction)
+### For wordpress-project 
 ```
 ocd create wordpress-project myproject
 ```
 
 You just say ocd create then parameter drupal-project/wordpress-project projectname (gives containers names also).
 
-# That's it!
+## That's it!
+
+# View and run your site
+
+After the containers have been created, you just have to run docker-composer start in your project's folder, whenever you want to access your project.
 
 ### Don't forget to add your site at hosts file. If your site is myproject.dd add in your hosts: 
 - 127.0.0.1 myproject.dd pma.myproject.dd
 
-## View your new site at local
+## View your new site local
 http://myproject.dd
 
 ## View phpMyAdmin 
 http://pma.myproject.dd
+
 
 ## Creds
 ### For drupal and phpMyAdmin
@@ -69,11 +75,21 @@ http://pma.myproject.dd
 
 <img src="various/creds-one-command.jpg">
 
-### For wordpress and phpMyAdmin (under construction)
-- database name: 
-- database username: 
-- password: 
-- user root:
-- root password: 
+### For wordpress and phpMyAdmin 
+- database name: wordpress
+- database username: wordpress
+- password: wordpress
+- user root: root
+- root password: password
+- host: db
+
+# Repositories used
+
+#### The docker for the server used is from here
+https://github.com/georgetour/lemp-docker
+
+
+#### The docker for reverse proxy so we can have the domain names
+https://github.com/georgetour/nginx-proxy
 
 

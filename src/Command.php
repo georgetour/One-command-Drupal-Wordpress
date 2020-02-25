@@ -40,13 +40,14 @@ class Command extends SymfonyCommand
           } else {
             $output -> writeln("Probably wrong project name");
           } 
-        } else if ($project == 'wordpress-project'){          
-          // if (!empty($projectName) && ctype_digit(strval($port))) {
-          //   $wordpress = new WordpressProject($projectName, $port);
-          // } else {
+        } else if ($project == 'wordpress-project') {
+          if (!empty($projectName)) {
+            $wordpress = new WordpressProject($projectName);
+          } else {
             $output -> writeln("wordpress test");
-          // }
-        } else {
+          }
+        }
+        else {
           $output -> writeln("First argument must be drupal-project or wordpress-project.");
         }
     }
