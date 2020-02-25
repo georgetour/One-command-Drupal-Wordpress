@@ -30,15 +30,15 @@ class DrupalProject {
 
     //2. Add lemp-docker if not exists
     try {
-      if(!file_exists("lemp-docker/docker-compose.yml")) {
+      if(!file_exists(realpath("lemp-docker/docker-compose.yml"))) {
         $this->shell("git clone https://github.com/georgetour/lemp-docker.git");
+        $this->shell("rm -rf lemp-docker/.git");
       }
     } catch (\Throwable $th) {
       echo "Error getting lemp-docker from git";
     }
 
     //3. Copy docker files so we can docker-compose up -d later
-    $this->shell("rm -rf lemp-docker/.git");
     $this->shell("cp -r lemp-docker/* " . $projectName);
     $this->shell("cp lemp-docker/example.env ". $projectName . "/.env");
     echo "\n - Finsihed downloading docker server files - \n \n" ;
@@ -65,7 +65,7 @@ class DrupalProject {
     echo ("\n - Created docker containers and server is running - \n \n");
     
     //6. Add site to hosts file
-    echo ("\n - Add ".$projectName . ".dd" . " to hosts file- \n \n");
+    echo ("\n - Add ".$projectName . ".dd " . "and pma." .$projectName . ".dd to hosts file - \n \n");
     echo ("\n - Visit your site at http://" .$projectName . ".dd".  "- \n \n");
 
     //5. Install drupal with drush

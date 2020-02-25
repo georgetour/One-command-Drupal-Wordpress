@@ -82,7 +82,7 @@ class WordpressProject {
     echo ("\n - Created docker containers and server is running - \n \n");
     
     //7. Info Add site to hosts file
-    echo ("\n - Add ".$projectName . ".dd" . "and pma." .$projectName . ".dd to hosts file - \n \n");
+    echo ("\n - Add ".$projectName . ".dd " . "and pma." .$projectName . ".dd to hosts file - \n \n");
     echo ("\n - Visit your site at http://" .$projectName . ".dd ".  "- \n \n");
   }
 
