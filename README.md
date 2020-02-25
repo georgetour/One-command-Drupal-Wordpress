@@ -83,6 +83,8 @@ http://pma.myproject.dd
 - root password: password
 - host: db
 
+<img src="various/wordpress-firstscreen.png">
+
 # Repositories used
 
 #### The docker for the server used is from here
