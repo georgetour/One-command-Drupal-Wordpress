@@ -27,9 +27,12 @@ sudo chmod 755 /usr/local/bin/ocd
 
 3. Create an external nginx reverse proxy that will handle the domains locally.
 ```
-git clone https://github.com/georgetour/nginx-proxy.git
+docker network create nginx-proxy
 ```
 
+```
+git clone https://github.com/georgetour/nginx-proxy.git
+```
 Inside the folder:
 ```
 docker-compose up -d
