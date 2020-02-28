@@ -97,4 +97,7 @@ https://github.com/georgetour/lemp-docker
 #### The docker for reverse proxy so we can have the domain names
 https://github.com/georgetour/nginx-proxy
 
+## Known issues 
+*Sometimes when using wsl2 with windows 10 if you create a new project, even if docker and all it's containers are running we have a 503 nginx error. With restart you can run docker-compose start and it will run normally. This probably has something to do with the connection between wsl2, windows, docker and the containers.*
+
 
