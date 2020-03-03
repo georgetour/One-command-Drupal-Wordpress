@@ -100,4 +100,8 @@ https://github.com/georgetour/nginx-proxy
 ## Known issues 
 *Sometimes when using wsl2 with windows 10 if you create a new project, even if docker and all it's containers are running we have a 503 nginx error. With restart you can run docker-compose start and it will run normally. This probably has something to do with the connection between wsl2, windows, docker and the containers.*
 
+In the latest update of docker those issues seem to be fixed:
+
+https://docs.docker.com/docker-for-windows/release-notes/#bug-fixes-and-minor-changes
+
 
