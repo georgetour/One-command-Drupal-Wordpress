@@ -5,7 +5,7 @@ One command to create a drupal or wordpress workflow.
 With one command you will have the files, the containers for the server, the site up and running along with phpmyadmin.
 
 # Requirements
-- php
+- php (sudo apt-get install libapache2-mod-php7.4 php7.4-curl php7.4-gd php7.4-mbstring php7.4-mbstring php7.4-mysql php7.4-zip)
 - composer (for drupal only)
 - git
 - wget
